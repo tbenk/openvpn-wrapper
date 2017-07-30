@@ -2,6 +2,7 @@
 
 ## Expected Directory Structure:
 
+```
    # $base/bin/vpn.sh
    # $base/config/<NAME1>/config.opvn
    # $base/config/<NAME2>/config.opvn
@@ -10,6 +11,7 @@
    # $base/pidfiles/<NAME1>
    # $base/pidfiles/<NAME2>
    # $base/pidfiles/<...>
+```
 
 ## OpenVPN Config Requirements:
 
@@ -19,4 +21,6 @@
 
 ## Connect to VPN screen Session
 
+```
    screen -r vpn
+```
