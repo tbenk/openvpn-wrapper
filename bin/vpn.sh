@@ -33,7 +33,7 @@ check() {
 
     exec 3>&2 2>/dev/null
     local pid="$(<"$_pidfile")"
-    local cmd="$(<"/proc/$pid/comm")"
+    local cmd="$(</proc/"$pid"/comm)"
     exec 2>&3
 
     if test "$cmd" = 'openvpn'
@@ -113,7 +113,7 @@ screenify() {
   local me="`readlink -f "$0"`"
 
   # step 0: return if already screenified
-  local parent="`ps -hp "$PPID" -o comm 2>/dev/null`"
+  local parent="$(</proc/$PPID/comm)"
   if test "$parent" = "screen"
 
     then return
