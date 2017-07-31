@@ -188,7 +188,7 @@ main() {
   screenify vpn "$vpn" "$base"/misc/screenrc
 
   trap "rm -f '$base'/pidfiles/'$vpn'" EXIT
-  openvpn --writepid "$base/pidfiles/$vpn" --config "$base"/config/"$vpn"/config.ovpn
+  openvpn --writepid "$base"/pidfiles/"$vpn" --config "$base"/config/"$vpn"/config.ovpn
 }
 
 main "$@"
