@@ -153,6 +153,15 @@ screenify() {
   exit 0
 }
 
+# wait for openvpn process to start
+wait_and_list() {
+
+  local _vpn="$1"
+
+  inotifywait -q -q -t 1 "$base"/config/"$_vpn"/config.ovpn
+  list "$_vpn"
+}
+
 # main
 main() {
 
@@ -184,6 +193,9 @@ main() {
     list "$1" 
     exit 1
   fi
+
+  print 'blue' 'vpn started'
+  trap "wait_and_list '$vpn'" EXIT
 
   screenify vpn "$vpn" "$base"/misc/screenrc
 
