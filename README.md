@@ -14,7 +14,6 @@
 ## OpenVPN Config Requirements:
 
 * vpn config must be located at $base/<NAME>/config.ovpn
-* vpn config must contain "writepid $base/pidfiles/<NAME>"
 * username/password auth only via auth-user-pass file
 
 ## Connect to VPN screen Session

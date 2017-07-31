@@ -17,7 +17,6 @@
 # openvpn config requirements:
 # 
 # - vpn config must be located at $base/<NAME>/config.ovpn
-# - vpn config must contain "writepid $base/pidfiles/<NAME>"
 # - username/password auth only via auth-user-pass file
 
 # connect to vpn screen session: screen -r vpn
@@ -189,7 +188,7 @@ main() {
   screenify vpn "$vpn" "$base"/misc/screenrc
 
   trap "rm -f '$base'/pidfiles/'$vpn'" EXIT
-  openvpn --config "$base"/config/"$vpn"/config.ovpn
+  openvpn --writepid "$base/pidfiles/$vpn" --config "$base"/config/"$vpn"/config.ovpn
 }
 
 main "$@"
